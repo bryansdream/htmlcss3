@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <img src="/src/logoipsum-251.svg" alt="logo" class="logo">
+            <p class="tentang-kami">Tentang kami</p>
+        </div>
+        
+        <div class="header">
+            <h1>Kumpulan Artikel</h1>
+        </div>
+
+        <div>
+            <select id="filter" onchange="myFunction()">
+                <option value="">All</option>
+                <option value="Food">Food</option>
+                <option value="Soft Drink">Soft Drink</option>
+                <option value="Snack">Snack</option>
+                <option value="Ice Cream">Ice Cream</option>
+            </select>
+            <p id="demo">selected:</p>
+        </div>  
+
+        <div class="content"></div>
+
+        </div>
+    </div>
+
+        <div class="footer">
+            <footer>RGB</footer>
+        </div>
+
+    <script>
+    const artikel = [
+    {
+        id:"snack",
+        title:"Kentang", 
+        category:"Snack", 
+        excerpt:"kentang kok lembek",
+        date:"20 Sept 2022",
+        image:"https://picsum.photos/250/160"
+    },
+    {
+        id:"softdrink",
+        title:"Cocacola", 
+        category:"Soft Drink", 
+        excerpt:"soda kok panas",
+        date:"20 Sept 2022",
+        image:"https://picsum.photos/250/160"
+    },
+    {
+        id:"food",
+        title:"Nasi Padang", 
+        category:"Food", 
+        excerpt:"Cara makan nasi padang pakai sendok",
+        date:"20 Sept 2022",
+        image:"https://picsum.photos/250/160"
+    },
+    {
+        id:"food",
+        title:"Nasi Kuning", 
+        category:"Food", 
+        excerpt:"Nasi kok bisa jadi kuning? Karena sakit kuning",
+        date:"20 Sept 2022",
+        image:"https://picsum.photos/250/160"
+    },
+    {
+        id:"softdrink",
+        title:"Root beer", 
+        category:"Soft Drink", 
+        excerpt:"Root Beer gak pake ice cream",
+        date:"20 Sept 2022",
+        image:"https://picsum.photos/250/160"
+    },
+    {
+        id:"icedream",
+        title:"Chocolate Ice Cream",
+        category:"Ice Cream",
+        excerpt:"ice cream coklat rasa strawberry",
+        date:"20 Sept 2022",
+        image:"https://picsum.photos/250/160"
+    }]
+
+    function myFunction() {
+    var x = document.getElementById("filter").value;
+    document.getElementById("demo").innerHTML = "selected:" + x;
+    renderArtikel(x === '' ? artikel : artikel.filter(article => article.category === x))
+    }   
+
+    const renderArtikel = (artikel) => {
+    const containerElement = document.querySelector('.content')
+    containerElement.innerHTML = ''
+
+    for(let i = 0; i < artikel.length; i++) 
+    {
+    containerElement.innerHTML += `
+            <div class="card">
+                <img id="image" src="${artikel[i].image}" alt="image" class="imagepng">
+                <div class="detailcard">
+                    <p class="penulis-artikel" id="category">${artikel[i].category}</p>
+                    <p class="tgl-artikel" id="date">${artikel[i].date}</p>
+                </div>
+                <h4 class="judul-artikel" id="title">${artikel[i].title}</h4>
+                <p class="isi-artikel" id="excerpt">${artikel[i].excerpt}</p>
+            </div>`;
+            
+    }
+    }
+
+    renderArtikel(artikel)
+    </script>
+</body>
+</html>
