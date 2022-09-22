@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card{
+    margin: 15px;
+    width: 250px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.detailcard{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.penulis-artikel{
+    color: #a6a6a6;
+}
+
+.tgl-artikel{
+    color: #a6a6a6;
+}
+
+.judul-artikel{
+    padding-top: 10px;
+}
+
+.isi-artikel{
+    color: #525252;
+}
+
+@media only screen and (max-width: 800px) {
+    /* For mobile phones: */
+    .content{
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+  }
+
+.card:hover{
+    background-color: #d9d9d9; 
+    border-radius: 20px; 
+    border: 2px;
+    border-bottom: skyblue;
+}
+
+.imagepng {
+    border-radius: 5px;
+}
+
+.footer{
+    background-color: #cccccc;
+    width: 100%;
+    color: white;
+    padding: 20px;
+}
